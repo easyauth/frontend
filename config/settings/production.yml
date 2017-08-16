@@ -1,0 +1,5 @@
+db:
+  name: easyauth_db
+  user: easyauth
+  # put password in config/settings/production.local.yml
+  # password: easyauth_pass

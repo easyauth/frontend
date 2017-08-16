@@ -12,3 +12,22 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+Rails.application.config.assets.precompile += %w( easyauth.css )
+Rails.application.config.assets.precompile += %w( bootstrap.css )
+Rails.application.config.assets.precompile += %w( bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( jquery.js )
+Rails.application.config.assets.precompile += %w( bootstrap.min )
+Rails.application.config.assets.precompile += %w( bootstrap )
+Rails.application.config.assets.precompile += %w( jquery-1.10.2 )
+Rails.application.config.assets.precompile += %w( org/pkijs/csr )
+
+Rails.application.config.assets.precompile += %w( org/pkijs/common )
+Rails.application.config.assets.precompile += %w( org/pkijs/asn1 )
+Rails.application.config.assets.precompile += %w( org/pkijs/x509_schema )
+Rails.application.config.assets.precompile += %w( org/pkijs/x509_simpl )
+
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Copyright 2015 Info Tech, Inc. Provided under the MIT license. See LICENSE file for details. -->
+<html>
+<body>
+
+
+<!-- Navigation -->
+  <div id="nav-placeholder"></div>
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <p class="lead">Hello, <%= unless session[:name].nil? then session[:name] else "user" end %>!</p>
+        <div class="list-group">
+         </div>
+      </div>
+      </div>
+
+  <h1>Create  Account</h1>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+     <%= form_tag do %>
+      <p><label>Name:</label><br>
+        <%= text_field_tag 'name', '', size: "50"  %>
+
+      <p><label>Email:</label><br>
+        <%= text_field_tag 'email', '', size: "50" %>
+
+      <p><label>Password:</label><br>
+      <%= password_field_tag 'password', '', size: "50" %>
+      <br>
+
+      <input type="submit" value="Submit">
+   
+    <% end %>
+
+
+
+
+
+  </div>
+
+</body>
+</html>

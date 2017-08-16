@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>CSR Generator</title>
+
+
+<%= javascript_include_tag  "org/pkijs/common" %>
+<%= javascript_include_tag  "org/pkijs/asn1" %>
+<%= javascript_include_tag  "org/pkijs/x509_schema" %>
+<%= javascript_include_tag  "org/pkijs/x509_simpl" %>
+<%= javascript_include_tag  "org/pkijs/csr" %>
+  </script>
+</head>
+
+
+  <!-- Navigation -->
+  <div id="nav-placeholder"></div>
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <p class="lead">Hello, <%= unless session[:name].nil? then session[:name] else "user" end %>!</p>
+        <div class="list-group">
+          <a href=
+            <%="/" %>
+          class="list-group-item">Home</a> <a href=
+          <%="/create_cert" %>
+          class="list-group-item active">Create CSR</a> 
+          <a href=
+          <%="/profile/#{session[:id]}" %>
+          class="list-group-item">Edit Profile</a>
+        </div>
+      </div>
+      <div class="col-md-9">
+
+<body>
+  <h1>Certificate Signing Request Generator</h1>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+
+    <p><button id="csrgen_btn" onclick="javascript:create_new_csr()">Generate Keypair+CSR </button></p>
+    <%= form_tag do %>
+        <h1>Certificate in PEM Format</h1>
+        <%= text_area_tag(:pem_certificate, "Please generate a CSR above...", readonly: true, size: "80x20") %> <br />
+        <a id="private-key-download" download="key.pem">Download private key</a><br />
+<br>
+<%= submit_tag "Submit" %>
+ 
+  <% end %>
+
+
+    </div>
+  </div>
+
+</body>
+</html>

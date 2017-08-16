@@ -1,0 +1,5 @@
+db:
+  name: easyauth_dev_db
+  user: easyauth_dev
+  # put password in config/settings/development.local.yml
+  pass: easyauth_pass

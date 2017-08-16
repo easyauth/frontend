@@ -1,14 +1,85 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Frontend</title>
+    <title>Easyauth!</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<%= stylesheet_link_tag "easyauth" %>
+<%= stylesheet_link_tag "bootstrap.min" %>
+
+<%= javascript_include_tag  "bootstrap.min" %>
+
   </head>
+
+   <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role=
+  "navigation">
+    <div class="container">
+      <!-- Toggle -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle=
+        "collapse" data-target=
+        "#bs-example-navbar-collapse-1"><span class=
+        "sr-only">Toggle navigation</span></button> <a class=
+        "navbar-brand">EasyAuth</a>
+      </div>
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id=
+      "bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <%= link_to "Home", "/" %>
+          </li>
+
+        <% if session[:name] %>
+          <li>
+           <%= link_to "Logout", "/logout" %> 
+          </li>
+        <% else %>
+          <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
+           <ul class="dropdown-menu">
+            <li><%= link_to "Easyauth", "/login" %></li>
+            <li><%= link_to "API", "/api_login" %></li>
+           </ul>
+           </li>
+
+
+            <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register</a>
+           <ul class="dropdown-menu">
+            <li><%= link_to "Easyauth", "/register" %></li>
+            <li><%= link_to "API", "/api_register" %></li>
+           </ul>
+           </li>
+          <% end %>
+          <li>
+
+          <%= link_to "Admin", "/admin" if session[:admin] %>  
+    
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
 
   <body>
     <%= yield %>
+
+
+
+
+         <footer>
+          <div class="row">
+            <div class="col-lg-12">
+              <p>Copyright EasyAuth 2017</p>
+            </div>
+          </div>
+        </footer>
   </body>
 </html>

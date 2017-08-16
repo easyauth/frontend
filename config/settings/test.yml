@@ -1,0 +1,5 @@
+db:
+  name: easyauth_test_db # Make sure this isn't the same as prod or dev!
+  user: easyauth_dev
+  # put password in config/settings/test.local.yml
+  # password: easyauth_pass

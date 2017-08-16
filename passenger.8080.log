@@ -1,0 +1,93 @@
+[ 2017-08-13 13:08:41.7883 9893/7f4b4f2d2740 age/Wat/WatchdogMain.cpp:1283 ]: Starting Passenger watchdog...
+[ 2017-08-13 13:08:41.8029 9896/7f595ed3e740 age/Cor/CoreMain.cpp:1083 ]: Starting Passenger core...
+[ 2017-08-13 13:08:41.8034 9896/7f595ed3e740 age/Cor/CoreMain.cpp:248 ]: Passenger core running in multi-application mode.
+[ 2017-08-13 13:08:41.8114 9896/7f595ed3e740 age/Cor/CoreMain.cpp:830 ]: Passenger core online, PID 9896
+[ 2017-08-13 13:08:41.8148 9904/7f8d9f423740 age/Ust/UstRouterMain.cpp:537 ]: Starting Passenger UstRouter...
+[ 2017-08-13 13:08:41.8154 9904/7f8d9f423740 age/Ust/UstRouterMain.cpp:350 ]: Passenger UstRouter online, PID 9904
+App 9946 stdout: 
+[ 2017-08-13 13:08:44.3759 9896/7f595d3f3700 age/Cor/SecurityUpdateChecker.h:374 ]: Security update check: no update found (next check in 24 hours)
+App 9946 stdout: 
+[ 2017-08-13 13:08:45.6895 9896/7f595c0a5700 age/Cor/App/Implementation.cpp:304 ]: Could not spawn process for application /home/jeff/merge/frontend: An error occurred while starting up the preloader.
+  Error ID: 1a2399ec
+  Error details saved to: /tmp/passenger-error.OBJV3o
+  Message from application: /home/jeff/merge/frontend/config/routes.rb:5: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  get '/profile/<id>', to 'easyauth#profile'
+                           ^
+/home/jeff/merge/frontend/config/routes.rb:6: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  get '/admin', to 'easyauth#admin'
+                    ^
+/home/jeff/merge/frontend/config/routes.rb:7: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  get '/login', to 'easyauth#login'
+                    ^
+/home/jeff/merge/frontend/config/routes.rb:8: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  post '/login', to 'easyauth#do_login'
+                     ^
+/home/jeff/merge/frontend/config/routes.rb:9: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  get '/register', to 'easyauth#register'
+                       ^
+/home/jeff/merge/frontend/config/routes.rb:10: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  get '/create_cert', to 'easyauth#create_cert'
+                          ^ (SyntaxError)
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.3/lib/active_support/dependencies.rb:286:in `load'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.3/lib/active_support/dependencies.rb:286:in `block in load'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.3/lib/active_support/dependencies.rb:258:in `load_dependency'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.3/lib/active_support/dependencies.rb:286:in `load'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/application/routes_reloader.rb:55:in `block in load_paths'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/application/routes_reloader.rb:55:in `each'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/application/routes_reloader.rb:55:in `load_paths'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/application/routes_reloader.rb:18:in `reload!'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/application/routes_reloader.rb:41:in `block in updater'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.3/lib/active_support/file_update_checker.rb:81:in `execute'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/application/routes_reloader.rb:42:in `updater'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/application/routes_reloader.rb:31:in `execute_if_updated'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/application/finisher.rb:128:in `block in <module:Finisher>'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/initializable.rb:30:in `instance_exec'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/initializable.rb:30:in `run'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/initializable.rb:59:in `block in run_initializers'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/2.4.0/tsort.rb:228:in `block in tsort_each'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/2.4.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/2.4.0/tsort.rb:431:in `each_strongly_connected_component_from'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/2.4.0/tsort.rb:349:in `block in each_strongly_connected_component'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/2.4.0/tsort.rb:347:in `each'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/2.4.0/tsort.rb:347:in `call'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/2.4.0/tsort.rb:347:in `each_strongly_connected_component'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/2.4.0/tsort.rb:226:in `tsort_each'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/2.4.0/tsort.rb:205:in `tsort_each'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/initializable.rb:58:in `run_initializers'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/application.rb:353:in `initialize!'
+  /home/jeff/merge/frontend/config/environment.rb:5:in `<top (required)>'
+  config.ru:3:in `require_relative'
+  config.ru:3:in `block in <main>'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rack-2.0.3/lib/rack/builder.rb:55:in `instance_eval'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rack-2.0.3/lib/rack/builder.rb:55:in `initialize'
+  config.ru:1:in `new'
+  config.ru:1:in `<main>'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/passenger-5.1.7/src/helper-scripts/rack-preloader.rb:110:in `eval'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/passenger-5.1.7/src/helper-scripts/rack-preloader.rb:110:in `preload_app'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/passenger-5.1.7/src/helper-scripts/rack-preloader.rb:156:in `<module:App>'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/passenger-5.1.7/src/helper-scripts/rack-preloader.rb:30:in `<module:PhusionPassenger>'
+  /home/jeff/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/passenger-5.1.7/src/helper-scripts/rack-preloader.rb:29:in `<main>'
+
+
+[ 2017-08-13 13:08:45.7239 9896/7f595cb71700 age/Cor/Con/CheckoutSession.cpp:285 ]: [Client 1-1] Cannot checkout session because a spawning error occurred. The identifier of the error is 1a2399ec. Please see earlier logs for details about the error.
+
+[ 2017-08-13 13:08:51.4717 9904/7f8d9dad8700 age/Ust/UstRouterMain.cpp:430 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+
+[ 2017-08-13 13:08:51.4718 9904/7f8d9f423740 age/Ust/UstRouterMain.cpp:500 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2017-08-13 13:08:51.4718 9896/7f595cb71700 age/Cor/CoreMain.cpp:588 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2017-08-13 13:08:51.4718 9904/7f8d9d2d7700 Ser/Server.h:862 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2017-08-13 13:08:51.4718 9904/7f8d9d2d7700 Ser/Server.h:490 ]: [UstRouterApiServer] Shutdown finished
+[ 2017-08-13 13:08:51.4718 9896/7f595ed3e740 age/Cor/CoreMain.cpp:1002 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2017-08-13 13:08:51.4719 9904/7f8d9dad8700 Ser/Server.h:490 ]: [UstRouter] Shutdown finished
+[ 2017-08-13 13:08:51.4719 9896/7f5957fff700 Ser/Server.h:862 ]: [ServerThr.2] Freed 0 spare client objects
+[ 2017-08-13 13:08:51.4719 9896/7f5957fff700 Ser/Server.h:490 ]: [ServerThr.2] Shutdown finished
+[ 2017-08-13 13:08:51.4719 9896/7f5956ffd700 Ser/Server.h:862 ]: [ServerThr.4] Freed 0 spare client objects
+[ 2017-08-13 13:08:51.4719 9896/7f5956ffd700 Ser/Server.h:490 ]: [ServerThr.4] Shutdown finished
+[ 2017-08-13 13:08:51.4720 9896/7f595cb71700 Ser/Server.h:862 ]: [ServerThr.1] Freed 0 spare client objects
+[ 2017-08-13 13:08:51.4720 9896/7f595cb71700 Ser/Server.h:490 ]: [ServerThr.1] Shutdown finished
+[ 2017-08-13 13:08:51.4721 9896/7f59577fe700 Ser/Server.h:862 ]: [ServerThr.3] Freed 0 spare client objects
+[ 2017-08-13 13:08:51.4721 9896/7f59577fe700 Ser/Server.h:490 ]: [ServerThr.3] Shutdown finished
+[ 2017-08-13 13:08:51.4721 9896/7f59567fc700 Ser/Server.h:862 ]: [ApiServer] Freed 0 spare client objects
+[ 2017-08-13 13:08:51.4721 9896/7f59567fc700 Ser/Server.h:490 ]: [ApiServer] Shutdown finished
+[ 2017-08-13 13:08:51.4723 9904/7f8d9f423740 age/Ust/UstRouterMain.cpp:531 ]: Passenger UstRouter shutdown finished
+[ 2017-08-13 13:08:51.5261 9896/7f595ed3e740 age/Cor/CoreMain.cpp:1068 ]: Passenger core shutdown finished
