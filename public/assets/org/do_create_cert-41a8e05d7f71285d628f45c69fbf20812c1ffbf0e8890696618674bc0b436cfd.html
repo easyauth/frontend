@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>CSR Generator</title>
+  <script type="text/javascript" src="org/pkijs/common.js"></script>
+  <script type="text/javascript" src="org/pkijs/asn1.js"></script>
+  <script type="text/javascript" src="org/pkijs/x509_schema.js"></script>
+  <script type="text/javascript" src="org/pkijs/x509_simpl.js"></script>
+  <script type="text/javascript" src="org/pkijs/csr.js"></script>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/easyauth.css" rel="stylesheet">
+  <!-- Needed for nav-bar -->
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js">
+  </script>
+</head>
+
+
+<!-- Navigation -->
+  <div id="nav-placeholder"></div>
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <p class="lead">Hello, [USERNAME]</p>
+        <div class="list-group">
+          <a href=
+          "file:///home/jeff/easyauth1/easyauth/pages/index.html"
+          class="list-group-item active">Home</a> <a href=
+          "file:///home/jeff/easyauth1/easyauth/pages/user/storekey.html"
+          class="list-group-item">Store Key</a> <a href=
+          "file:///home/jeff/easyauth1/easyauth/pages/user/edit.html"
+          class="list-group-item">Edit Profile</a>
+        </div>
+      </div>
+
+<body>
+  <h1>Certificate Signing Request Generator</h1>
+
+
+  <form id="pkcs10_handling" onsubmit="return false;">
+    <fieldset>
+      <legend><a name="input">CSR X.509 Input Data:</a></legend>
+
+      <p><label for="csrgen_x509_cn">Name:</label><br>
+      <input type="text" id="csrgen_x509_cn"  title="Your full name" placeholder="Jane User" size="50" required></p>
+
+      <p><label for="csrgen_x509_email">Email:</label><br>
+      <input type="email" id="csrgen_x509_email" title="Your email address" placeholder="jane.user@example.com" size="50" required></p>
+
+      <p><label for="csrgen_x509_oid_mail">Data location for email address in
+      CSR:</label><br>
+      <select id="csrgen_x509_oid_mail">
+        <option value="2.5.29.17" title="Example CSR subject component: subjectAltName=email:jane.user@example.com">
+          SubjectAltName with "email:"-Prefix
+        </option>
+
+        <option value="1.2.840.113549.1.9.1" title="Example CSR subject component: emailAddress=jane.user@example.com">
+          emailAddress in DN (deprecated)
+        </option>
+      </select></p>
+
+      <p><label for="csrgen_x509_o">Organization:</label><br>
+      <input type="text" id="csrgen_x509_o" placeholder="Example, Inc." size="50" required></p>
+
+      <p><label for="csrgen_x509_ou">Organizational Unit:</label><br>
+      <input type="text" id="csrgen_x509_ou" placeholder="Dept. of Examples" size="50" required></p>
+
+      <p><label for="csrgen_x509_c">Locality:</label><br>
+      <input type="text" id="csrgen_x509_l" placeholder="Example City" size="50" required></p>
+
+      <p><label for="csrgen_x509_c">Country:</label><br>
+      <input type="text" id="csrgen_x509_c" placeholder="AT" pattern="[A-Z]{2}" size="3" maxlength="2" required></p>
+    </fieldset>
+
+    <p><button id="csrgen_btn" onclick="javascript:create_new_csr()" onclick="generateCSR()"  >&uarr; Generate Keypair+CSR &darr;</button></p>
+
+    <fieldset>
+      <legend>Computed Output:</legend>
+
+  
+
+
+  <section id="certificate">
+        <h1>Certificate in PEM Format</h1>
+        <a id="certificate-download" download="certificate.pem">Download Certificate</a>
+        <pre id="pem-certificate"></pre>
+</section>
+
+
+
+ 
+
+  <section id="private-key">
+        <h1>Private Key in PEM Format</h1>
+        <a id="private-key-download" download="privatekey.pem">Download Private Key</a>
+        <pre id="pem-private-key"></pre>
+</section>
+
+
+
+    </fieldset>
+  </form>
+
+
+<script>
+function generateCSR() {
+
+    $.ajax({
+   url: "/certificates/",
+   type: "POST",
+   data: {"csrgen_x509_cn" : $('#csrgen_x509_cn').val(),
+          "csrgen_x509_email" : $('#csrgen_x509_email').val(),
+          "csrgen_x509_o" : $('#csrgen_x509_o').val(),
+          "csrgen_x509_ou" : $('#csrgen_x509_ou').val(),
+          "csrgen_x509_l" : $('#csrgen_x509_l').val(),
+          "csrgen_x509_c" : $('#csrgen_x509_c').val()
+           },
+   dataType: "json",
+
+ success: function(data) {
+       alert('successfully');
+     },
+      fail: function(data) {
+       alert('fail');
+     }
+
+   });
+}
+</script>
+
+   <!-- /Container -->
+      <div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer>
+          <div class="row">
+            <div class="col-lg-12">
+              <p>Copyright EasyAuth 2017</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+     <!-- jQuery -->
+      <script>
+      $(function(){
+      $("#nav-placeholder").load("nav-bar.html");
+      });
+      </script> 
+       
+      <script src="js/jquery.js">
+      </script> <!-- Bootstrap Core JavaScript -->
+       
+      <script src="js/bootstrap.min.js">
+      </script>
+    </div>
+  </div>
+
+
+
+
+
+
+</body>
+</html>
