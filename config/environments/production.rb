@@ -88,4 +88,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.assets.precompile += ['org/pkijs/common.js']
+  config.assets.precompile += ['org/pkijs/asn1.js']
+  config.assets.precompile += ['org/pkijs/x509_schema.js']
+  config.assets.precompile += ['org/pkijs/x509_simpl.js']
+  config.assets.precompile += ['org/pkijs/csr.js']
 end
