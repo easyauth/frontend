@@ -1,68 +1,53 @@
-  <!-- Navigation -->
-  <div id="nav-placeholder"></div>
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <p class="lead">Hello, <%= unless session[:name].nil? then session[:name] else "user" end %>!</p>
-        <div class="list-group">
-          <a href=
-            <%="/" %>
-          class="list-group-item">Home</a> <a href=
-          <%="/create_cert" %>
-          class="list-group-item">Create CSR</a> 
-          <a href=
-          <%="/profile/#{session[:id]}" %>
-          class="list-group-item active">Edit Profile</a>
-        </div>
-      </div>
-      <div class="col-md-9">
+<div class="row">
+  <div class="col-md-3">
+    <p class="lead">Hello, <%= unless session[:name].nil? then session[:name] else "user" end %>!</p>
+    <div class="list-group">
+      <a href=
+      <%="/" %>
+      class="list-group-item">Home</a> <a href=
+      <%="/create_cert" %>
+      class="list-group-item">Create CSR</a> 
+      <a href=
+      <%="/profile/#{session[:id]}" %>
+      class="list-group-item active">Edit Profile</a>
+    </div>
+  </div>
+  <div class="col-md-9">
 
 
 
 
-  <h1>Edit User Account</h1>
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-     <%= form_tag do %>
-      <fieldset>
-      <p><label >Name:</label><br>
-      <%= text_field_tag 'name', '', size: "50",  value: @user[:name]%>
+    <h1>Edit User Account</h1>
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <%= form_tag do %>
+    <fieldset>
+      <label >Name:</label><br>
+      <%= text_field_tag 'name', '', size: "50",  value: @user[:name]%><br>
 
-      <p><label>Email:</label><br>
-      <%= text_field_tag 'email', '', size: "50",  value: @user[:email]%>
+      <label>Email:</label><br>
+      <%= text_field_tag 'email', '', size: "50",  value: @user[:email]%><br>
 
 
-      <p><label>Password:</label><br>
+      <label>Password:</label><br>
       <%= password_field_tag 'password', '', size: "50"%>
       <br>
-      </p>
       <input type="submit" value="Submit">
-      </fieldset>
-<br>
+    </fieldset>
+    <br>
 
-<%= link_to("Delete User", "/delete_user/#{@user[:id]}") %>
+    <%= link_to("Delete User", "/delete_user/#{@user[:id]}") %>
 
-<% if @user[:certificate_id] %>
-  <% if session[:admin] %>
+    <% if @user[:certificate_id] %>
+    <% if session[:admin] %>
     <%=  link_to "Delete Certificate", "/delete_certificate/#{@user[:certificate_id]}" %>
-  <% end %>
-  <% if @user[:id] == session[:id] %>
+    <% end %>
+    <% if @user[:id] == session[:id] %>
     <%= link_to "Revoke Certificate", "/revoke_certificate/#{@user[:certificate_id]}" %>
-  <% end %>
-<% end %>
-
+    <% end %>
     <% end %>
 
-
-
-
-
-
-
-
-
-
-
-</html>
+    <% end %>
+  </div>
+</div>

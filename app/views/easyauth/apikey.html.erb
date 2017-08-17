@@ -1,44 +1,23 @@
-  <!-- Navigation -->
-  <div id="nav-placeholder"></div>
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <p class="lead">Hello, <%= unless session[:name].nil? then session[:name] else "user" end %>!</p>
-        <div class="list-group">
-          <a href=
-            <%="/" %>
-          class="list-group-item">Home</a> <a href=
-          <%="/create_cert" %>
-          class="list-group-item">Create CSR</a> 
-          <a href=
-          <%="/apikey" %>
-          class="list-group-item active">Create API Key</a>
-          <a href=
-          <%="/profile/#{session[:id]}" %>
-          class="list-group-item">Edit Profile</a>
-        </div>
-      </div>
+<div class="row">
       <div class="col-md-9">
 
 
-  <h1>Create API Key</h1>
+  <h1>Create API Account</h1>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
      <%= form_tag("/apikey", method: "POST") do %>
       <fieldset>
 
-      <p><label>Email:</label><br>
-      <%= text_field_tag 'email', '', size: "50",  value: session[:email]%>
+      <label>Email:</label><br>
+      <%= text_field_tag 'email', '', size: "50",  value: session[:email]%><br>
 
 
-      <p><label>Password:</label><br>
+      <label>Password:</label><br>
       <%= password_field_tag 'password', '', size: "50"%>
       <br>
-      </p>
       <input type="submit" value="Submit">
       </fieldset>
     <% end %>
-
-</html>
+  </div>
+</div>

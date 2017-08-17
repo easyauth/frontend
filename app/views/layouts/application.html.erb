@@ -6,9 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-  </head>
 
+  </head>
+  <body>
    <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role=
   "navigation">
@@ -60,10 +60,7 @@
       </div>
     </div>
   </nav>
-
-
-
-  <body>
+  <div class="container">
     <%= yield %>
 
 
@@ -76,5 +73,6 @@
             </div>
           </div>
         </footer>
+      </div>
   </body>
 </html>

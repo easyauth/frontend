@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-
-<html>
-<head>
-  <title>CSR Generator</title>
-
-
 <%= javascript_include_tag  "org/pkijs/common" %>
 <%= javascript_include_tag  "org/pkijs/asn1" %>
 <%= javascript_include_tag  "org/pkijs/x509_schema" %>
 <%= javascript_include_tag  "org/pkijs/x509_simpl" %>
 <%= javascript_include_tag  "org/pkijs/csr" %>
-  </script>
-</head>
-
-
-  <!-- Navigation -->
-  <div id="nav-placeholder"></div>
-  <!-- Page Content -->
-  <div class="container">
     <div class="row">
       <div class="col-md-3">
         <p class="lead">Hello, <%= unless session[:name].nil? then session[:name] else "user" end %>!</p>
@@ -32,9 +17,8 @@
           class="list-group-item">Edit Profile</a>
         </div>
       </div>
+      
       <div class="col-md-9">
-
-<body>
   <h1>Certificate Signing Request Generator</h1>
         <% flash.each do |key, value| %>
           <div class="alert alert-<%= key %>"><%= value %></div>
@@ -53,6 +37,3 @@
 
     </div>
   </div>
-
-</body>
-</html>
