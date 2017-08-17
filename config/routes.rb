@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # later: create API user, view API user, admin listing of them
   get '/profile/:id', to: 'easyauth#profile'
   post '/profile/:id', to: 'easyauth#do_profile'
+  get '/api_profile/:id', to: 'easyauth#view_api_key_user'
   get '/admin', to: 'easyauth#admin'
   post '/admin', to: 'easyauth#do_admin'
   get '/login', to: 'easyauth#login'

@@ -286,8 +286,27 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
     redirect_to '/'
   end
 
+  def view_api_key_user
+    response = call_backend("http://easyauth.org/api/api_key_users/#{params[:id]}", "GET", { 
+      apikey: session[:apikey]
+    })
 
+    begin
+      parsed_response = JSON.parse(response.body, symbolize_names: true)
+    rescue
+      flash[:error] = "Unspecified error"
+      render :error, status: 500
+      return
+    end
 
+    unless response.code.start_with? "2"
+      flash[:error] = parsed_response[:error]
+      render :error, status: 401
+      return
+    end  
+
+    @user = parsed_response[:user]
+  end
 
   def apikey
   end  

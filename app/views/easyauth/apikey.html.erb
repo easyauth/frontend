@@ -6,7 +6,7 @@
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-     <%= form_tag("/apikey", method: "POST") do %>
+     <%= form_tag do %>
       <fieldset>
 
       <label>Email:</label><br>
