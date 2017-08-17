@@ -55,6 +55,8 @@ response = call_backend("http://easyauth.org/api/users/#{params[:id]}", "DELETE"
       id: params[:id]
       })
 
+    redirect_to '/' and return if response.code == "204"
+
     begin
       parsed_response = JSON.parse(response.body, symbolize_names: true)
     rescue
@@ -63,14 +65,8 @@ response = call_backend("http://easyauth.org/api/users/#{params[:id]}", "DELETE"
       return
     end
 
-    unless response.code.start_with? "2"
-      flash[:error] = parsed_response[:error]
-      render :delete_user, id: params[:id], status: 401
-      return
-    end    
-    redirect_to '/'
-
-
+    flash[:error] = parsed_response[:error]
+    render :delete_user, id: params[:id], status: 401
   end
 
 def delete_certificate
@@ -82,7 +78,7 @@ response = call_backend("http://easyauth.org/api/certificates/#{params[:id]}", "
  
       })
 
-    redirect_to '/' if response.code == "204"
+    redirect_to '/' and return if response.code == "204"
 
     begin
       parsed_response = JSON.parse(response.body, symbolize_names: true)
@@ -92,14 +88,8 @@ response = call_backend("http://easyauth.org/api/certificates/#{params[:id]}", "
       return
     end
 
-    unless response.code.start_with? "2"
-      flash[:error] = parsed_response[:error]
-      render :delete_certificate, id: params[:id], status: 401
-      return
-    end    
-    redirect_to '/'
-
-
+    flash[:error] = parsed_response[:error]
+    render :delete_certificate, id: params[:id], status: 401
 end
 
 def revoke_certificate
