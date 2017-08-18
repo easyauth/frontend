@@ -1,9 +1,6 @@
 
 
   <h1>Enter Validation Code</h1> 
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
      <%= form_tag do %>
       <p><label>Validation Code:</label><br>
       <input type="text" id="validation_code" name="validation_code" size="50" required></p>
