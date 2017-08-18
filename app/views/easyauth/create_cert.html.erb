@@ -20,9 +20,6 @@
       
       <div class="col-md-9">
   <h1>Certificate Signing Request Generator</h1>
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
 
     <p><button id="csrgen_btn" onclick="javascript:create_new_csr()">Generate Keypair+CSR </button></p>
     <%= form_tag do %>

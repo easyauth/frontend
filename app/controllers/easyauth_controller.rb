@@ -55,8 +55,6 @@ response = call_backend("http://easyauth.org/api/users/#{params[:id]}", "DELETE"
       id: params[:id]
       })
 
-    redirect_to '/' and return if response.code == "204"
-
     begin
       parsed_response = JSON.parse(response.body, symbolize_names: true)
     rescue
@@ -65,8 +63,13 @@ response = call_backend("http://easyauth.org/api/users/#{params[:id]}", "DELETE"
       return
     end
 
-    flash[:error] = parsed_response[:error]
-    render :delete_user, id: params[:id], status: 401
+    unless response.code.start_with? "2"
+      flash[:error] = parsed_response[:error]
+      render :delete_user, id: params[:id], status: 401
+      return
+    end
+
+    flash[:notice] = 'Please check your email to confirm account deletion.'
   end
 
 def delete_certificate
@@ -78,7 +81,10 @@ response = call_backend("http://easyauth.org/api/certificates/#{params[:id]}", "
  
       })
 
-    redirect_to '/' and return if response.code == "204"
+    if response.code == "204"
+      flash[:notice] = "Certificate deleted."
+      redirect_to '/' return 
+    end
 
     begin
       parsed_response = JSON.parse(response.body, symbolize_names: true)
@@ -117,6 +123,7 @@ response = call_backend("http://easyauth.org/api/certificates/#{params[:id]}", "
       render :revoke_certificate, id: params[:id], status: 401
       return
     end    
+    flash[:notice] = 'Certificate revoked.'
     redirect_to '/'
 
 end
@@ -194,6 +201,7 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
 
     cache_user_info(parsed_response[:user])
 
+    flash[:notice] = 'Logged in!'
     redirect_to '/'
   end
 
@@ -236,6 +244,7 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
 
     cache_api_user_info(parsed_response[:user])
 
+    flash[:notice] = 'Logged in!'
     redirect_to '/'
   end
 
@@ -245,6 +254,7 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
 
   def logout
     reset_session if session[:authenticated]
+    flash[:notice] = 'Logged out.'
     redirect_to '/'
   end
 
@@ -272,7 +282,8 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
       flash[:error] = parsed_response[:error]
       render :register, status: 401
       return
-    end    
+    end
+    flash[:notice] = "Account created! Follow the instructions in your email to activate it."
     redirect_to '/'
   end
 
@@ -319,7 +330,8 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
       flash[:error] = parsed_response[:error]
       render :apikey, status: 401
       return
-    end    
+    end
+    flash[:notice] = "Account created! Follow the instructions in your email to activate it."
     redirect_to '/'
   end
 
@@ -336,6 +348,11 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
       validation_code: params[:validation_code]
       })
 
+    if response.code == "204"
+      flash[:notice] = "Account deleted."
+      redirect_to '/' return 
+    end
+
     begin
       parsed_response = JSON.parse(response.body, symbolize_names: true)
     rescue
@@ -349,6 +366,7 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
       render :validate, status: 401
       return
     end
+    flash[:notice] = "Email address validated!"
     redirect_to '/'
   end
 
@@ -365,6 +383,11 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
       validation_code: params[:validation_code]
       })
 
+    if response.code == "204"
+      flash[:notice] = "Account deleted."
+      redirect_to '/' return 
+    end
+
     begin
       parsed_response = JSON.parse(response.body, symbolize_names: true)
     rescue
@@ -378,6 +401,7 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
       render :validate, status: 401
       return
     end
+    flash[:notice] = "Email address validated!"
     redirect_to '/'
   end
 

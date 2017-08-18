@@ -6,9 +6,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <% yield :head %>
-
   </head>
   <body>
    <!-- Navigation -->
@@ -76,5 +73,23 @@
           </div>
         </footer>
       </div>
+      <% if flash[:error] %>
+    <script type="text/javascript">
+      $.notify({
+        message: "<%= flash[:error] %>"
+      },{
+        type: "danger"
+      })
+    </script>
+    <% end %>
+    <% if flash[:notice] %>
+    <script type="text/javascript">
+      $.notify({
+        message: "<%= flash[:error] %>"
+      },{
+        type: "info"
+      })
+    </script>
+    <% end %>
   </body>
 </html>

@@ -7,9 +7,6 @@
     </div>
 
     <h1>Create  Account</h1>
-    <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
     <%= form_tag do %>
     <label>Name:</label><br>
     <%= text_field_tag 'name', '', size: "50"  %><br>
