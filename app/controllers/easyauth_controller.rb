@@ -83,7 +83,8 @@ response = call_backend("http://easyauth.org/api/certificates/#{params[:id]}", "
 
     if response.code == "204"
       flash[:notice] = "Certificate deleted."
-      redirect_to '/' return 
+      redirect_to '/'
+      return 
     end
 
     begin
@@ -350,7 +351,8 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
 
     if response.code == "204"
       flash[:notice] = "Account deleted."
-      redirect_to '/' return 
+      redirect_to '/'
+      return 
     end
 
     begin
@@ -385,7 +387,8 @@ response = call_backend("http://easyauth.org/api/users", "GET", {
 
     if response.code == "204"
       flash[:notice] = "Account deleted."
-      redirect_to '/' return 
+      redirect_to '/'
+      return 
     end
 
     begin
